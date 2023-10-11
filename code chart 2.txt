@@ -1,0 +1,20 @@
+import matplotlib.pyplot as plt
+
+# Dữ liệu cầu thủ và giá trị thị trường
+players = ['Jude Bellingham', 'Jamal Musiala', 'Florian Wirtz', 'Christopher Nkunku',
+           'Joshua Kimmich', 'Josko Gvardiol', 'Matthijs de Ligt', 'Lerroy Sane',
+           'Alphonso Davies', 'Randal Kolo Muani']
+market_values = [120, 110, 85, 80, 80, 75, 75, 70, 70, 65]
+
+# Tạo biểu đồ cột ngang
+plt.barh(players, market_values, color='green')
+
+# Đặt tên cho trục x và trục y
+plt.xlabel('Market Value')
+plt.ylabel('Players')
+
+# Đặt tiêu đề cho biểu đồ
+plt.title('Horizontal Bar Chart - Player Market Value')
+
+# Hiển thị biểu đồ
+plt.show()
