@@ -1,0 +1,3 @@
+top_10_players = bundesliga_data[['name', 'club', 'price']].sort_values(by='price', ascending=False).head(10)
+print("Top 10 Players with the Highest Market Value:")
+print(top_10_players)
