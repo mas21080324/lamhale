@@ -1,0 +1,37 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Dữ liệu các câu lạc bộ và giá trị thị trường trung bình của cầu thủ
+clubs = ['Bayern Munich', 'RB Leipzig', 'Bor. Dortmund', 'B. Leverkusen', 'E. Frankfurt',
+         'Bor. M\'gladbach', 'VfL Wolfsburg', 'SC Freiburg', 'TSG Hoffenheim', 'Union Berlin',
+         '1.FSV Mainz 05', 'VfB Stuttgart', 'FC Augsburg', '1.FC Köln', 'Hertha BSC',
+         'Werder Bremen', 'FC Schalke 04', 'VfL Bochum', 'Hertha BSC II', 'B. Dortmund II',
+         'W. Bremen U19', 'Hertha BSC U19', 'RB Leipzig U19', 'RB Leipzig U17', '1.FC Köln II',
+         'W. Bremen II', '1.FC Köln U19', 'FC Augsburg U19']
+average_market_values = [36.285185, 20.287500, 18.193333, 15.624074, 10.153448,
+                         8.576923, 8.028000, 6.226923, 4.988710, 4.670370,
+                         4.211111, 3.998276, 3.779032, 3.723148, 3.383333,
+                         3.337500, 1.935484, 1.705357, 0.750000, 0.633333,
+                         0.300000, 0.250000, 0.200000, 0.200000, 0.180000,
+                         0.150000, None, None]
+
+# Tạo dataframe từ dữ liệu
+data = pd.DataFrame({'Club': clubs, 'Average Market Value': average_market_values})
+
+# Loại bỏ các hàng có giá trị NaN
+data = data.dropna()
+
+# Sắp xếp theo giá trị thị trường trung bình giảm dần
+data = data.sort_values(by='Average Market Value', ascending=False)
+
+# Tạo biểu đồ cột ngang
+plt.barh(data['Club'], data['Average Market Value'], color='teal')
+
+# Đặt tiêu đề cho biểu đồ
+plt.title('Clubs with the Highest Average Player Market Value')
+
+# Điều chỉnh các đánh dấu trên trục y để tránh chồng chéo
+plt.tight_layout()
+
+# Hiển thị biểu đồ
+plt.show()
