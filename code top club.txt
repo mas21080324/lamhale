@@ -1,0 +1,3 @@
+avg_club_value = bundesliga_data.groupby('club')['price'].mean().sort_values(ascending=False)
+print("\nClubs with the Highest Average Player Market Value:")
+print(avg_club_value)
